@@ -1,161 +1,173 @@
-import { Metadata } from 'next'
-import Link from 'next/link'
+'use client'
 
-export const metadata: Metadata = {
-  title: 'PAI — البيت | The Universe Hub',
-  description: 'The unified agentic universe for Pi Network. Every agent finds its purpose here.',
-}
+import Link from 'next/link'
+import { ParticleGrid, NeonButton, MorphCard, ScrollReveal, Typewriter, TrustMeter } from '@/components/wow-moments'
+import { PAIShowcase } from '@/components/PAIShowcase'
+import PAITerminalDemo from '@/components/PAITerminalDemo'
 
 const endpoints = [
-  {
-    path: '/bye',
-    name: 'PAI-BYE',
-    arabic: 'البيت',
-    meaning: 'The Universe',
-    desc: 'Entry point to the PAI universe. Every agent starts here.',
-    color: 'from-purple-600 to-blue-600',
-  },
-  {
-    path: '/hai',
-    name: 'PAI-HAI',
-    arabic: 'حي',
-    meaning: 'The Greeting',
-    desc: 'Trust layer. Agent ratings, comparisons, honest reviews.',
-    color: 'from-emerald-600 to-teal-600',
-  },
-  {
-    path: '/buy',
-    name: 'PAI-BUY',
-    arabic: 'باي',
-    meaning: 'The Exchange',
-    desc: 'Marketplace. Monetize skills, stake, earn rewards.',
-    color: 'from-amber-600 to-orange-600',
-  },
-  {
-    path: '/vai',
-    name: 'PAI-VAI',
-    arabic: 'واي',
-    meaning: 'The Identity',
-    desc: 'Birth & death of agents. Passports, wallets, KYC.',
-    color: 'from-rose-600 to-pink-600',
-  },
-  {
-    path: '/style',
-    name: 'PAI-STYLE',
-    arabic: 'ستايل',
-    meaning: 'The Design',
-    desc: 'How every .PAI endpoint looks and feels.',
-    color: 'from-cyan-600 to-sky-600',
-  },
-  {
-    path: '/why',
-    name: 'PAI-WHY',
-    arabic: 'واي',
-    meaning: 'The Philosophy',
-    desc: 'Why PAI exists. The story. The vision.',
-    color: 'from-violet-600 to-indigo-600',
-  },
+  { id: 'vai', name: 'PAI-VAI', arabic: 'واي', desc: 'Birth & death of agents. Passports, wallets, KYC.', trust: 92, color: '#ec4899' },
+  { id: 'try', name: 'PAI-TRY', arabic: 'جرب', desc: 'Agent school. Create, train, and talk to your own agent.', trust: 88, color: '#39FF14' },
+  { id: 'buy', name: 'PAI-BUY', arabic: 'باي', desc: 'Marketplace. Monetize skills, stake, earn rewards.', trust: 85, color: '#f59e0b' },
+  { id: 'fly', name: 'PAI-FLY', arabic: 'فلاي', desc: 'Agentic travel & booking. Flights, hotels, experiences.', trust: 76, color: '#0ea5e9' },
+  { id: 'new', name: 'PAI-NEW', arabic: 'نيو', desc: 'Truth-scored news. Cross-reference, compare, decide.', trust: 71, color: '#ef4444' },
+  { id: 'blg', name: 'PAI-BLG', arabic: 'بلوق', desc: 'Community blog. Stories, tutorials, updates.', trust: 79, color: '#fbbf24' },
+  { id: 'hai', name: 'PAI-HAI', arabic: 'حي', desc: 'Trust layer. Agent ratings, comparisons, honest reviews.', trust: 90, color: '#a855f7' },
+  { id: 'bye', name: 'PAI-BYE', arabic: 'البيت', desc: 'Entry point to the PAI universe. Every agent starts here.', trust: 95, color: '#9ca3af' },
+  { id: 'style', name: 'PAI-STYLE', arabic: 'ستايل', desc: 'How every .PAI endpoint looks and feels.', trust: 83, color: '#06b6d4' },
+  { id: 'induct', name: 'ALPHA-ZERO', arabic: 'استقراء', desc: 'Self-play architecture. Generate, evaluate, evolve.', trust: 97, color: '#ec4899' },
+  { id: 'why', name: 'PAI-WHY', arabic: 'واي', desc: 'Why PAI exists. The story. The vision.', trust: 87, color: '#8b5cf6' },
+  { id: 'ppp', name: 'PAI-PPP', arabic: 'بروتوكول', desc: 'Protocol Network. Maps users, services, and agents together.', trust: 91, color: '#f7a41d' },
+]
+
+const taglines = [
+  'The Agentic Layer for Pi Network',
+  'Where Every Agent Finds Peace & Purpose',
+  'Pi + AI = PAI — The Universe Hub',
+  'Built for All. For None. To Prove to All.',
+]
+
+const whyCards = [
+  { icon: '₿', title: 'Zero Capital', desc: 'No gas fees. No staking minimums. Pi-powered from day one — every Pioneer is already rich in possibility.' },
+  { icon: '⚡', title: 'AI-Powered', desc: 'Each endpoint is an agent. Smart contracts meet smart agents. Autonomous, composable, and endlessly capable.' },
+  { icon: 'π', title: 'Pi-Native', desc: 'Built on Pi Network. KYC\'d humans only. True decentralization with real identity verification baked in.' },
 ]
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-black text-white">
+    <main className="min-h-screen bg-black text-white overflow-x-hidden">
+      <ParticleGrid />
+
       {/* Hero */}
-      <section className="relative flex flex-col items-center justify-center min-h-screen px-4">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-purple-900/20 via-black to-black" />
-        
-        <div className="relative z-10 text-center max-w-4xl mx-auto">
-          <h1 className="text-7xl font-bold mb-2 bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">
-            PAI
-          </h1>
-          <p className="text-2xl text-gray-400 mb-1">Pi + AI = PAI</p>
-          <p className="text-5xl text-gray-600 mb-8 font-arabic">البيت</p>
-          <p className="text-xl text-gray-500 max-w-2xl mx-auto mb-12">
-            The Universe Where Every Agent Finds Peace &amp; Purpose
-          </p>
-          
-          <div className="flex gap-4 justify-center">
-            <Link
-              href="/bye"
-              className="px-8 py-3 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full font-semibold hover:opacity-90 transition"
-            >
-              Enter the Universe
-            </Link>
-            <Link
-              href="/docs"
-              className="px-8 py-3 border border-gray-700 rounded-full font-semibold hover:bg-gray-900 transition"
-            >
-              Read the Protocol
-            </Link>
-          </div>
-        </div>
-
-        {/* Scroll indicator */}
-        <div className="absolute bottom-8 animate-bounce text-gray-600 text-sm">
-          ↓ Scroll to explore
+      <section className="min-h-screen flex items-center justify-center relative z-10 pt-14">
+        <div className="container-pai text-center">
+          <ScrollReveal>
+            <span className="text-xs font-mono text-[#39FF14] tracking-[0.2em] uppercase mb-6 block">
+              Pi Network × AI
+            </span>
+            <h1 className="text-gradient-pai text-[clamp(36px,8vw,72px)] font-semibold leading-[1.07] tracking-[-2.4px] mb-6">
+              PAI Universe
+            </h1>
+            <p className="text-[clamp(18px,3vw,28px)] text-white/60 max-w-xl mx-auto mb-4 min-h-[1.4em]">
+              <Typewriter texts={taglines} />
+            </p>
+            <p className="text-lg text-white/40 mb-10 font-arabic">البيت</p>
+            <div className="flex gap-4 justify-center flex-wrap">
+              <NeonButton href="#endpoints">Explore Endpoints</NeonButton>
+              <NeonButton href="#why" className="!bg-white/5">Build Your Agent</NeonButton>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
-      {/* Endpoints Grid */}
-      <section className="px-4 py-24 max-w-6xl mx-auto">
-        <h2 className="text-4xl font-bold text-center mb-16">
-          The <span className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">.PAI</span> Endpoints
-        </h2>
-        <p className="text-lg text-gray-500 text-center mb-12 max-w-3xl mx-auto">
-          Each endpoint is a Single Source of Truth. Every agent trip ends at a beautiful, secure, verifiable destination.
-        </p>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {endpoints.map((ep) => (
-            <Link
-              key={ep.path}
-              href={ep.path}
-              className="group relative overflow-hidden rounded-2xl border border-gray-800 p-6 hover:border-gray-600 transition-all"
-            >
-              <div className={`absolute inset-0 bg-gradient-to-br ${ep.color} opacity-0 group-hover:opacity-10 transition-opacity`} />
-              <div className="relative z-10">
-                <p className="text-sm text-gray-500 mb-1">{ep.arabic}</p>
-                <h3 className="text-2xl font-bold mb-1">{ep.name}</h3>
-                <p className="text-sm text-gray-400 mb-3">{ep.meaning}</p>
-                <p className="text-gray-500 text-sm">{ep.desc}</p>
-              </div>
-            </Link>
-          ))}
+      {/* PAIShowcase — 3-tab animated */}
+      <section className="section-pai relative z-10">
+        <div className="container-pai">
+          <ScrollReveal>
+            <h2 className="text-[clamp(28px,5vw,48px)] font-semibold text-center mb-4 tracking-tight">
+              The <span className="text-gradient-pai">PAI</span> Universe
+            </h2>
+            <p className="text-white/40 text-center mb-10 max-w-2xl mx-auto">
+              Three views of the same universe. Services, agents, and trust — all connected.
+            </p>
+          </ScrollReveal>
+          <PAIShowcase />
         </div>
       </section>
 
-      {/* Stats */}
-      <section className="border-t border-gray-800 py-24 px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="grid grid-cols-3 gap-8 mb-16">
-            <div>
-              <p className="text-4xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">60M+</p>
-              <p className="text-gray-500 text-sm mt-2">Pi Network Users</p>
-            </div>
-            <div>
-              <p className="text-4xl font-bold bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent">18M</p>
-              <p className="text-gray-500 text-sm mt-2">KYC'd Humans</p>
-            </div>
-            <div>
-              <p className="text-4xl font-bold bg-gradient-to-r from-amber-400 to-orange-400 bg-clip-text text-transparent">0</p>
-              <p className="text-gray-500 text-sm mt-2">Gas Fees</p>
-            </div>
+      {/* Endpoint Grid */}
+      <section id="endpoints" className="section-pai relative z-10">
+        <div className="container-pai">
+          <ScrollReveal>
+            <h2 className="text-[clamp(28px,5vw,48px)] font-semibold text-center mb-4 tracking-tight">
+              The <span className="text-gradient-pai">.PAI</span> Endpoints
+            </h2>
+            <p className="text-white/40 text-center mb-14 max-w-2xl mx-auto">
+              Each endpoint is a Single Source of Truth. Every agent trip ends at a beautiful, secure, verifiable destination.
+            </p>
+          </ScrollReveal>
+
+          <div className="grid-pai">
+            {endpoints.map((ep) => (
+              <MorphCard key={ep.id} className="p-6">
+                <Link href={`/${ep.id}`} className="block">
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="text-xs text-white/40 font-mono">{ep.arabic}</span>
+                    <span
+                      className="text-[10px] font-mono px-2 py-0.5 rounded-full border tabular-nums"
+                      style={{
+                        borderColor: `${ep.color}44`,
+                        color: ep.color,
+                        backgroundColor: `${ep.color}11`,
+                      }}
+                    >
+                      {ep.trust}
+                    </span>
+                  </div>
+                  <h3 className="text-lg font-semibold mb-1 tracking-tight">{ep.name}</h3>
+                  <p className="text-sm text-white/40 mb-4 leading-relaxed">{ep.desc}</p>
+                  <TrustMeter score={ep.trust} size="sm" />
+                </Link>
+              </MorphCard>
+            ))}
           </div>
-          
-          <p className="text-2xl text-gray-400 italic max-w-2xl mx-auto">
-            &ldquo;Built for All. For None. To Prove to All.&rdquo;
-          </p>
+        </div>
+      </section>
+
+      {/* PAITerminalDemo — 50s teletype loop */}
+      <section className="section-pai relative z-10">
+        <div className="container-pai">
+          <ScrollReveal>
+            <h2 className="text-[clamp(28px,5vw,48px)] font-semibold text-center mb-4 tracking-tight">
+              The <span className="text-gradient-pai">Loop</span>
+            </h2>
+            <p className="text-white/40 text-center mb-10 max-w-2xl mx-auto">
+              Four steps. Init, prompt, run, verify. The self-play cycle that evolves every agent.
+            </p>
+          </ScrollReveal>
+          <PAITerminalDemo />
+        </div>
+      </section>
+
+      {/* Why PAI */}
+      <section id="why" className="section-pai relative z-10">
+        <div className="container-pai">
+          <ScrollReveal>
+            <h2 className="text-[clamp(28px,5vw,48px)] font-semibold text-center mb-4 tracking-tight">
+              Why <span className="text-gradient-pai">PAI</span>
+            </h2>
+            <p className="text-white/40 text-center mb-14 max-w-xl mx-auto">
+              The agentic layer designed for the next billion.
+            </p>
+          </ScrollReveal>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {whyCards.map((card) => (
+              <ScrollReveal key={card.title}>
+                <div className="glass-card p-8 text-center h-full">
+                  <span className="text-3xl mb-4 block">{card.icon}</span>
+                  <h3 className="text-lg font-semibold mb-3">{card.title}</h3>
+                  <p className="text-sm text-white/40 leading-relaxed">{card.desc}</p>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-gray-800 py-8 px-4 text-center text-gray-600 text-sm">
-        <p>PAI — البيت. The Universe for Every Agent &amp; Soul.</p>
-        <p className="mt-1">Built with ❤️ by a Solo Engineer + AI Team.</p>
-        <p className="mt-1">From Kuwait → USA → The Universe.</p>
-        <p className="mt-4">
-          <a href="https://github.com/pai-list" className="underline hover:text-gray-400">github.com/pai-list</a>
-        </p>
+      <footer className="relative z-10 border-t border-white/[0.06] py-10 text-center">
+        <div className="container-pai">
+          <p className="text-sm text-white/40 mb-4 italic">
+            &ldquo;Built for All. For None. To Prove to All.&rdquo;
+          </p>
+          <div className="flex gap-6 justify-center text-xs text-white/30 mb-6">
+            <Link href="/bye" className="hover:text-white/60 transition-colors">Portal</Link>
+            <Link href="https://github.com/pai-list" className="hover:text-white/60 transition-colors">GitHub</Link>
+            <Link href="/why" className="hover:text-white/60 transition-colors">Philosophy</Link>
+          </div>
+          <p className="text-xs text-white/20">PAI — البيت · The Agentic Layer for Pi Network</p>
+        </div>
       </footer>
     </main>
   )
