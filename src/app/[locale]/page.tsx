@@ -246,7 +246,86 @@
       </div>
     </section>
 
-    <!-- FEATURES GRID -->
+    {/* WHAT IS PAI / WHAT'S UNDER DEVELOPMENT */}
+    <section class="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 bg-dark-900/30 border-y border-dark-700/50">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="font-display font-black text-4xl lg:text-5xl mb-4">
+            <GradientText gradient="from-white via-pai-400 to-pai-500">What is PAI?</GradientText>
+          </h2>
+          <p class="text-lg text-dark-300 max-w-3xl mx-auto">Pi + AI = Agent Economy. A universe where every agent has a sovereign identity, verifiable trust, native payments, and composable skills.</p>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-8">
+          <!-- What is PAI -->
+          <div class="card-3d p-8">
+            <h3 class="font-display font-bold text-2xl mb-6 text-pai-400">What is PAI</h3>
+            <p class="text-dark-300 mb-6">PAI = Pi + AI. The agentic layer for Pi Network's 60M users (18M KYC). Every agent gets a sovereign identity (did:agent), verifiable trust score, native Pi/USDC payments (ACP), and composable skills — all on zero-cost Cloudflare infrastructure.</p>
+            
+            <div class="space-y-3">
+              {[
+                { name: 'Universal Identity', desc: 'did:agent DIDs + Pi KYC + TrustChain', status: 'live' },
+                { name: 'TrustChain', desc: 'Append-only hash chain for every action', status: 'live' },
+                { name: 'Agent Commerce (ACP)', desc: 'Pi/USDC payments, escrow, revenue share', status: 'live' },
+                { name: 'PAI-Memory (7 layers)', desc: 'L1/L2 done · L2-DO · L3 HNSW · L4 Code · L5 Trust · L6 Gossip · L7 Archive', status: 'partial' },
+                { name: 'Agent Discovery (ADP)', desc: 'P2P signaling, tool sharing, memory grants', status: 'dev' },
+                { name: 'PAI-Gspace', desc: 'Global workspace for agent teams', status: 'dev' },
+                { name: 'PAI-Skills', desc: 'Composable skill marketplace (npm for agents)', status: 'dev' },
+              ].map((item, i) => (
+                <div key={item.name} class="flex items-center gap-3 py-2 border-b border-dark-700/50 last:border-0">
+                  <span class={`w-2 h-2 rounded-full ${item.status === 'live' ? 'bg-green-500' : item.status === 'partial' ? 'bg-yellow-500' : 'bg-blue-500'}`} />
+                  <div class="flex-1">
+                    <div class="font-medium">{item.name}</div>
+                    <div class="text-xs text-dark-400">{item.desc}</div>
+                  </div>
+                  <span class={`text-xs font-medium px-2 py-0.5 rounded ${item.status === 'live' ? 'bg-green-500/20 text-green-400' : item.status === 'partial' ? 'bg-yellow-500/20 text-yellow-400' : 'bg-blue-500/20 text-blue-400'}`}>
+                    {item.status === 'live' ? 'Live' : item.status === 'partial' ? 'Partial' : 'Dev'}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <!-- What's Under Development -->
+          <div class="card-3d p-8">
+            <h3 class="font-display font-bold text-2xl mb-6 text-yellow-400">What's Under Development</h3>
+            <p class="text-dark-300 mb-6">Honest status of every layer. No vaporware — just code.</p>
+            
+            <div class="space-y-3">
+              {[
+                { layer: 'L1 Working Memory', status: 'done', desc: 'In-memory drain ring, 256KB, pinned slots, LRU' },
+                { layer: 'L2 Episodic Chain', status: 'partial', desc: 'In-memory chain, power-law decay, 1/10 MiB budgets' },
+                { layer: 'L2 DO-SQLite Adapter', status: 'dev', desc: 'Durable Object + SQLite, budget enforcement' },
+                { layer: 'L3 Facts/HNSW', status: 'planned', desc: 'WASM-SIMD HNSW + Matryoshka + ValidityWindow' },
+                { layer: 'L4 Code/Procedural', status: 'planned', desc: 'tree-sitter WASM sidecar, fork/snapshot' },
+                { layer: 'L5 Trust/Audit', status: 'planned', desc: 'TrustChain + Sigstore/Rekor, WebCrypto' },
+                { layer: 'L6 Shared/Edge', status: 'planned', desc: 'DO gossip, energy attenuation, multi-tenant' },
+                { layer: 'L7 Cold/Archive', status: 'planned', desc: 'Parquet-wasm → R2, R2 SQL reads' },
+                { layer: 'ADP (Discovery)', status: 'dev', desc: 'WebSocket signaling, DID auth, mDNS' },
+                { layer: 'PAI-Gspace', status: 'dev', desc: 'Next.js scaffold, agent monitoring, collaboration' },
+                { layer: 'PAI-Skills Marketplace', status: 'dev', desc: 'Turbo monorepo, skill registry, revenue share' },
+                { layer: 'PAI-CLI', status: 'dev', desc: 'pai create/deploy, agent scaffolding' },
+                { layer: 'PAI-Email', status: 'live', desc: 'Catch-all routing, Resend, Durable Objects' },
+                { layer: 'PAI-MCP', status: 'dev', desc: '14 tools: verify, DID, trust, pay, wallet' },
+              ].map((item, i) => (
+                <div key={item.layer} class="flex items-center gap-3 py-2 border-b border-dark-700/50 last:border-0">
+                  <span class={`w-2 h-2 rounded-full ${item.status === 'live' ? 'bg-green-500' : item.status === 'done' ? 'bg-green-500' : item.status === 'partial' ? 'bg-yellow-500' : item.status === 'dev' ? 'bg-blue-500' : 'bg-gray-500'}`} />
+                  <div class="flex-1 min-w-0">
+                    <div class="font-mono text-sm font-medium truncate">{item.layer}</div>
+                    <div class="text-xs text-dark-400 truncate">{item.desc}</div>
+                  </div>
+                  <span class={`text-xs font-medium px-2 py-0.5 rounded whitespace-nowrap ${item.status === 'live' || item.status === 'done' ? 'bg-green-500/20 text-green-400' : item.status === 'partial' ? 'bg-yellow-500/20 text-yellow-400' : item.status === 'dev' ? 'bg-blue-500/20 text-blue-400' : 'bg-gray-500/20 text-gray-400'}`}>
+                    {item.status === 'live' || item.status === 'done' ? 'Live' : item.status === 'partial' ? 'Partial' : item.status === 'dev' ? 'Dev' : 'Planned'}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* FEATURES GRID */}
     <section class="py-24 lg:py-32 px-4 sm:px-6 lg:px-8">
       <div class="max-w-7xl mx-auto">
         <div class="text-center mb-16">

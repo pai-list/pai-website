@@ -1,13 +1,13 @@
 <!-- ═══════════ PAI-WEBSITE · Marketing Hub ═══════════ -->
-<!-- Stack: Next.js 16, Tailwind 4, Three.js, MDX         -->
+<!-- Stack: Next.js 15, Tailwind 4, Three.js, MDX         -->
 <!-- Live at: pai-website.vercel.app                       -->
-<!-- Updated: 23 July 2026                                 -->
+<!-- Updated: 2026-08-02                                 -->
 <!-- ══════════════════════════════════════════════════════ -->
 
 <div align="center">
   <img src="https://img.shields.io/badge/status-live-00FF41?style=flat-square&labelColor=0D1117" />
   <img src="https://img.shields.io/github/license/pai-list/pai-website?style=flat-square&color=00A36C&labelColor=0D1117" />
-  <img src="https://img.shields.io/badge/Next.js-16-000000?style=flat-square&logo=next.js&labelColor=0D1117" />
+  <img src="https://img.shields.io/badge/Next.js-15-000000?style=flat-square&logo=next.js&labelColor=0D1117" />
   <img src="https://img.shields.io/badge/i18n-EN%2FAR%2FZH-39FF14?style=flat-square&labelColor=0D1117" />
   <br/>
   <a href="https://pai-website.vercel.app">🌐 Live Site →</a>
@@ -16,81 +16,81 @@
 <div align="center">
 <pre>
  ██████╗  █████╗  ██╗    ██╗    ██╗███████╗██████╗ ███████╗██╗████████╗███████╗
- ██╔══██╗██╔══██╗██║    ██║    ██║██╔════╝██╔══██╗██╔════╝██║╚══██╔══╝██╔════╝
+ ██╔══██╗██╔══██╗██║    ██║    ██║██════╝██╔══██╗██════╝██║╚══██╔══╝██╔════╝
  ██████╔╝███████║██║    ██║ █╗ ██║█████╗  ██████╔╝█████╗  ██║   ██║   █████╗
- ██╔═══╝ ██╔══██║██║    ██║███╗██║██╔══╝  ██╔══██╗██╔══╝  ██║   ██║   ██╔══╝
+ ██╔═══╝ ██╔══██║██║    ██║███╗██║██╔══╝  ██╔══██╗██══╝  ██║   ██║   ██╔══╝
  ██║     ██║  ██║██║    ╚███╔███╔╝███████╗██║  ██║███████╗██║   ██║   ███████╗
- ╚═╝     ╚═╝  ╚═╝╚═╝     ╚══╝╚══╝ ╚══════╝╚═╝  ╚═╝╚══════╝╚═╝   ╚═╝   ╚══════╝
+ ╚═╝     ╚═╝  ╚═╝╚═╝     ╚══╝╚══╝ ╚══════╝╚═╝  ╚═╝╚══════╝╚═╝   ╚══════╝
 </pre>
 </div>
 
 # PAI Website · البيت
 
-**The entry point to the PAI Universe — a trilingual (EN/AR/ZH) marketing hub and agent playground built with Next.js 16.**
-
-Every agent's first trip starts here. The PAI website is a beautiful, interactive space where developers discover protocols, browse the agent marketplace, and launch their first PAI agent.
+**The entry point to the PAI Universe — a trilingual (EN/AR/ZH) marketing hub and agent playground built with Next.js 15.**
 
 ---
 
-## ❯ Routes
+## Status
 
-| Route | Page | Description |
-|:------|:-----|:------------|
-| `/` | Universe Hub | Entry point — agent discovery |
-| `/bye` | PAI-BYE | The universe — what PAI is |
-| `/hai` | PAI-HAI | Trust & communication protocol |
-| `/buy` | PAI-BUY | Agent marketplace |
-| `/vai` | PAI-VAI | Identity & payments |
-| `/style` | PAI-STYLE | Design language & tokens |
-| `/why` | PAI-WHY | Philosophy & manifesto |
-| `/docs` | Protocol docs | MDX documentation |
-| `/skills` | Skills browser | Registry of available agent skills |
+| Component | Status | Notes |
+|-----------|--------|-------|
+| **Landing Page** | ✅ **Live** | `pai-website.vercel.app` |
+| **i18n (EN/AR/ZH)** | ✅ **Done** | RTL support for Arabic |
+| **PPP Topology Page** | ✅ **Live** | Interactive topology visualization |
+| **3D Skill System** | ✅ **Live** | Three.js skill avatars |
+| **App Directory** | ⏳ **Planned** | Live agent cards with Pi/PAI badges |
+| **Identity Widget** | ⏳ **Planned** | AxiomID session → trust score, DID |
 
 ---
 
-## ❯ Stack
+## Stack
 
-| Layer | Technology |
-|:------|:-----------|
-| Framework | Next.js 16 (App Router) |
-| Styling | Tailwind CSS 4 |
-| Animations | Framer Motion |
-| 3D | Three.js (`.PAI` spaces) |
-| Content | MDX (documentation) |
-| Deployment | Vercel (free tier) |
-| i18n | EN / AR / ZH |
+- **Framework:** Next.js 15 (App Router)
+- **Styling:** Tailwind 4
+- **3D:** Three.js + React Three Fiber
+- **i18n:** Custom router (EN/AR/ZH with RTL)
+- **Deploy:** Vercel + Cloudflare DNS
 
 ---
 
-## ❯ Quick Start
+## Structure
 
-```bash
-npm install
-npm run dev
-# → http://localhost:3000
+```
+src/
+├── app/
+│   ├── [locale]/          # i18n routes
+│   │   ├── layout.tsx
+│   │   ├── page.tsx       # Landing
+│   │   ├── ppp/           # PPP topology + media pages
+│   │   └── ...
+│   ├── layout.tsx
+│   └── page.tsx
+├── components/
+│   ├── ui/                # Shared UI components
+│   ├── PAIHeader.tsx
+│   ├── PAILogo.tsx
+│   └── Header.tsx
+├── lib/
+│   ├── i18n/              # EN/AR/ZH config
+│   ├── vercel-labs-ecosystem.ts
+│   └── utils.ts
+└── ...
 ```
 
 ---
 
-## ❯ Development
+## Deployment
 
-```bash
-# Build production
-npm run build
-
-# Lint
-npm run lint
-
-# Preview production
-npx vercel deploy --preview
-```
+- **Platform:** Vercel
+- **Domain:** `pai-website.vercel.app` (custom domain `pai.build` pending registration)
+- **DNS:** Cloudflare (proxied)
 
 ---
 
-## ❯ License
+## License
 
-PiOS — Pi Open Source License
+MIT — Free for all agents, all humans, all purposes.
 
 ---
 
-*The universe is ready. Deploy your first agent today.*
+*Part of the PAI Universe. The marketing hub for Pi + AI.*
