@@ -597,7 +597,7 @@ export const VERCEL_LABS_ECOSYSTEM = {
     pattern3: {
       name: "Agent Skills Catalog → PAI Skills Registry",
       source: "vercel-labs/agent-skills (29k stars)",
-      target: "skills.pai.build (search, install, publish, revenue share)",
+      target: "skills.axiomid.app (search, install, publish, revenue share)",
       features: ["search", "categories", "verified badges", "revenue split 90/10", "ACP integration"],
     },
     pattern4: {
@@ -729,8 +729,8 @@ export const VERCEL_LABS_ECOSYSTEM = {
       { name: "cli", description: "Developer CLI (`pai create`, `pai deploy`, `pai skills`, `pai verify`)", priority: 4 },
       { name: "mcp", description: "MCP Server for any LLM to access Pi Network", priority: 5 },
       { name: "control-plane", description: "PAI Control Plane (LifeOS fork + Pi extensions)", priority: 6 },
-      { name: "docs", description: "Documentation site (VitePress) - docs.pai.build", priority: 7 },
-      { name: "pai-website", description: "Marketing site (pai.build) - Hero: 'PAI = BYE'", priority: 8 },
+      { name: "docs", description: "Documentation site (VitePress) - docs.axiomid.app", priority: 7 },
+      { name: "pai-website", description: "Marketing site (axiomid.app) - Hero: 'PAI = BYE'", priority: 8 },
       { name: "pai-3d-skills", description: "3D Skills system (three.ws patterns)", priority: 9 },
       { name: "pai-atom-spec", description: "Open Plugin Spec v1.0.0 mirror + governance", priority: 10 },
     ],

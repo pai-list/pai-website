@@ -2,7 +2,7 @@
   "name": "pai-website",
   "version": "1.0.0",
   "private": true,
-  "description": "PAI Universe Hub — pai.build",
+  "description": "PAI Universe Hub — axiomid.app",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

@@ -82,7 +82,7 @@ src/
 ## Deployment
 
 - **Platform:** Vercel
-- **Domain:** `pai-website.vercel.app` (custom domain `pai.build` pending registration)
+- **Domain:** `pai-website.vercel.app` (custom domain `axiomid.app`)
 - **DNS:** Cloudflare (proxied)
 
 ---
