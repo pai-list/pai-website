@@ -53,7 +53,7 @@ export const metadata: Metadata = {
   },
   description: 'Build, deploy, and monetize AI agents on Pi Network. The first agent economy with 60M users, 18M KYC, native payments, and verifiable identity.',
   keywords: ['PAI', 'Pi Network', 'AI agents', 'agent economy', 'ACP', 'decentralized AI', 'web3 AI', 'PaiSkill', 'skills registry'],
-  authors: [{ name: 'PAI Team', url: 'https://pai.build' }],
+  authors: [{ name: 'PAI Team', url: 'https://axiomid.app' }],
   creator: 'PAI Team',
   publisher: 'PAI',
   robots: {
@@ -70,7 +70,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://pai.build',
+    url: 'https://axiomid.app',
     siteName: 'PAI',
     title: 'PAI — The Agent Economy\'s Operating System',
     description: 'Build, deploy, and monetize AI agents on Pi Network. 60M users. 18M KYC. Native payments.',
@@ -133,9 +133,9 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="dns-prefetch" href="https://skills.pai.build" />
-        <link rel="dns-prefetch" href="https://api.pai.build" />
-        <link rel="dns-prefetch" href="https://assets.pai.build" />
+        <link rel="dns-prefetch" href="https://skills.axiomid.app" />
+        <link rel="dns-prefetch" href="https://api.axiomid.app" />
+        <link rel="dns-prefetch" href="https://assets.axiomid.app" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

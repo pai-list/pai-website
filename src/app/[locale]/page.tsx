@@ -430,7 +430,7 @@
         <div className="grid lg:grid-cols-4 gap-6">
           {[
             { title: 'Agent Kit', desc: '@pai/core runtime', icon: '⚙️', color: 'from-blue-500 to-cyan-500', href: '/docs/agent-kit' },
-            { title: 'Skills Registry', desc: 'skills.pai.build', icon: '🧩', color: 'from-purple-500 to-pink-500', href: '/skills' },
+            { title: 'Skills Registry', desc: 'skills.axiomid.app', icon: '🧩', color: 'from-purple-500 to-pink-500', href: '/skills' },
             { title: 'CLI', desc: 'pai create/deploy', icon: '⌨️', color: 'from-green-500 to-emerald-500', href: '/docs/cli' },
             { title: 'MCP Server', desc: 'Any LLM → Pi', icon: '🔌', color: 'from-orange-500 to-red-500', href: '/docs/mcp' },
           ].map((item, i) => (

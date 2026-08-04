@@ -365,7 +365,7 @@ export class PAI3DEmbed {
   }
   
   private static async fetchManifest(name: string): Promise<PAI3DSkillManifest> {
-    const res = await fetch(`https://skills.pai.build/api/skills/${name}/manifest`);
+    const res = await fetch(`https://skills.axiomid.app/api/skills/${name}/manifest`);
     return res.json();
   }
   
