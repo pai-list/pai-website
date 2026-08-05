@@ -1,7 +1,7 @@
 <!-- ═══════════ PAI-WEBSITE · Marketing Hub ═══════════ -->
 <!-- Stack: Next.js 15, Tailwind 4, Three.js, MDX         -->
 <!-- Live at: pai-website.vercel.app                       -->
-<!-- Updated: 2026-08-02                                 -->
+<!-- Updated: 2026-08-05                                 -->
 <!-- ══════════════════════════════════════════════════════ -->
 
 <div align="center">
@@ -18,9 +18,9 @@
  ██████╗  █████╗  ██╗    ██╗    ██╗███████╗██████╗ ███████╗██╗████████╗███████╗
  ██╔══██╗██╔══██╗██║    ██║    ██║██════╝██╔══██╗██════╝██║╚══██╔══╝██╔════╝
  ██████╔╝███████║██║    ██║ █╗ ██║█████╗  ██████╔╝█████╗  ██║   ██║   █████╗
- ██╔═══╝ ██╔══██║██║    ██║███╗██║██╔══╝  ██╔══██╗██══╝  ██║   ██║   ██╔══╝
+ ██╔═══╝ ██══██║██║    ██║███╗██║██══╝  ██╔══██╗██══╝  ██║   ██║   ██══╝
  ██║     ██║  ██║██║    ╚███╔███╔╝███████╗██║  ██║███████╗██║   ██║   ███████╗
- ╚═╝     ╚═╝  ╚═╝╚═╝     ╚══╝╚══╝ ╚══════╝╚═╝  ╚═╝╚══════╝╚═╝   ╚══════╝
+ ╚═╝     ╚═╝  ╚═╝╚═╝     ╚══╝╚══╝ ╚══════╝╚═╝  ╚══════╝╚═╝   ╚══════╝
 </pre>
 </div>
 
@@ -49,7 +49,7 @@
 - **Styling:** Tailwind 4
 - **3D:** Three.js + React Three Fiber
 - **i18n:** Custom router (EN/AR/ZH with RTL)
-- **Deploy:** Vercel + Cloudflare DNS
+- **Deploy:** Vercel
 
 ---
 
@@ -82,8 +82,8 @@ src/
 ## Deployment
 
 - **Platform:** Vercel
-- **Domain:** `pai-website.vercel.app` (custom domain `axiomid.app`)
-- **DNS:** Cloudflare (proxied)
+- **Domain:** `pai-website.vercel.app`
+- **Custom domain:** TBD (configure when ready)
 
 ---
 
