@@ -47,3 +47,4 @@ worker/
 
 # Vercel
 .vercel/
+.turbo/
