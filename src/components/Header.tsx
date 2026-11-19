@@ -1,8 +1,9 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { cn } from '@/lib/utils';
+import { GradientText } from './ui';
 
 export interface Language {
   code: string;
@@ -482,7 +483,7 @@ export function Header() {
             </div>
           </motion.div>
         )}
-      </nav>
+      </AnimatePresence>
     </header>
   );
 }

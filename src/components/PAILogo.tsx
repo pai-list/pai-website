@@ -23,11 +23,11 @@ export function PAILogo({
     return (
       <span className="flex items-center gap-2">
         <span className={cn('font-display font-black', sizes[size])}>
-          <span className="bg-gradient-to-r from-pai-400 via-pai-500 to-pai-600 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-emerald-300 via-emerald-400 to-emerald-500 bg-clip-text text-transparent">
             PAI
           </span>
         </span>
-        <span className="text-xs font-mono text-pai-400/80 uppercase tracking-wider">
+        <span className="text-xs font-mono text-emerald-300/80 uppercase tracking-wider">
           BYE
         </span>
       </span>
@@ -37,7 +37,7 @@ export function PAILogo({
   if (variant === 'minimal') {
     return (
       <span className="font-display font-black" style={{ fontSize: sizes[size].match(/text-(\w+)/)?.[1] }}>
-        <span className="bg-gradient-to-r from-pai-400 via-pai-500 to-pai-600 bg-clip-text text-transparent">
+        <span className="bg-gradient-to-r from-emerald-300 via-emerald-400 to-emerald-500 bg-clip-text text-transparent">
           PAI
         </span>
       </span>
@@ -53,14 +53,14 @@ export function PAILogo({
               <stop offset="0%" stopColor="#39ff14" />
               <stop offset="50%" stopColor="#22c55e" />
               <stop offset="100%" stopColor="#16a34a" />
-            </defs>
+            </linearGradient>
           </defs>
           <circle cx="16" cy="16" r="15" stroke="url(#paiGradient)" strokeWidth="2" />
           <path d="M16 8V24M8 16H24" stroke="url(#paiGradient)" strokeWidth="2.5" strokeLinecap="round" />
           <circle cx="16" cy="16" r="6" fill="url(#paiGradient)" />
         </svg>
       </span>
-      <span className="font-display font-black whitespace-nowrap bg-gradient-to-r from-pai-400 via-pai-500 to-pai-600 bg-clip-text text-transparent">
+      <span className="font-display font-black whitespace-nowrap bg-gradient-to-r from-emerald-300 via-emerald-400 to-emerald-500 bg-clip-text text-transparent">
         PAI
       </span>
     </span>

@@ -17,6 +17,6 @@ jobs:
         with:
           node-version: "22"
           cache: "npm"
-      - run: npm ci || npm install
+      - run: npm install
       - run: npm test || true
       - run: npm run build || true

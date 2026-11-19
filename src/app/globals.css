@@ -4,29 +4,73 @@
 
 :root {
   --foreground: #ffffff;
-  --background: #000000;
+  --background: #0a0d14;
+  --canvas: #0a0d14;
+  --surfaceDark: #0f172a;
+  --surfaceBorder: #1e293b;
+  --primaryCyan: #00F2FE;
+  --emeraldGreen: #10B981;
+  --accentPurple: #a855f7;
+  --textPrimary: #FFFFFF;
+  --textSecondary: #94a3b8;
+  --textMuted: #64748b;
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: system-ui, -apple-system, sans-serif;
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+  
+  body {
+    @apply bg-[var(--canvas)] text-[var(--textPrimary)] antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+  
+  * {
+    @apply border-[var(--surfaceBorder)];
+  }
 }
 
-@font-face {
-  font-family: 'Arabic';
-  src: local('Noto Naskh Arabic'), local('Scheherazade New'), local('Amiri');
+@layer utilities {
+  .text-gradient-pai {
+    @apply bg-gradient-to-r from-cyan-400 via-emerald-400 to-purple-500 bg-clip-text text-transparent;
+  }
+  
+  .glass-card {
+    @apply bg-slate-900/50 backdrop-blur-sm border border-slate-800 rounded-2xl;
+  }
+  
+  .container-pai {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .section-pai {
+    @apply py-20 md:py-28 lg:py-32;
+  }
+  
+  .grid-pai {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6;
+  }
+  
+  .font-arabic {
+    font-family: 'Noto Sans Arabic', sans-serif;
+  }
+  
+  .font-display {
+    font-family: 'Space Grotesk', 'Geist', 'Inter', sans-serif;
+  }
 }
 
-.font-arabic {
-  font-family: 'Arabic', serif;
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
 }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
 }
 
-.animate-float {
-  animation: float 3s ease-in-out infinite;
+.animate-shimmer {
+  animation: shimmer 2s infinite;
 }

@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import { Inter, JetBrains_Mono, Noto_Sans_Arabic, Noto_Sans_SC, Noto_Sans_JP, Noto_Sans_KR, Noto_Sans_Devanagari } from 'next/font/google';
-import './globals.css';
+import '../globals.css';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -23,19 +23,19 @@ const notoSansArabic = Noto_Sans_Arabic({
 });
 
 const notoSansSC = Noto_Sans_SC({
-  subsets: ['chinese-simplified'],
+  subsets: ['latin'],
   variable: '--font-chinese',
   display: 'swap',
 });
 
 const notoSansJP = Noto_Sans_JP({
-  subsets: ['japanese'],
+  subsets: ['latin'],
   variable: '--font-japanese',
   display: 'swap',
 });
 
 const notoSansKR = Noto_Sans_KR({
-  subsets: ['korean'],
+  subsets: ['latin'],
   variable: '--font-korean',
   display: 'swap',
 });
@@ -104,14 +104,14 @@ export const metadata: Metadata = {
 };
 
 export const viewport = {
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
-    { media: '(prefers-color-scheme: dark)', color: '#020617' },
-  ],
+  themeColor: '#0a0d14',
   width: 'device-width',
   initialScale: 1,
-  maximumScale: 5,
 };
+
+export function generateStaticParams() {
+  return ['en', 'zh', 'es', 'ar', 'hi', 'pt', 'ru', 'ja', 'ko', 'fr', 'de'].map(locale => ({ locale }));
+}
 
 export default function RootLayout({
   children,
@@ -179,5 +179,3 @@ export default function RootLayout({
     </html>
   );
 }
-
-export default RootLayout;
