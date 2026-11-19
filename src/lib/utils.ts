@@ -83,11 +83,11 @@ export function throttle<T extends (...args: unknown[]) => unknown>(
 
 export function once<T extends (...args: unknown[]) => unknown>(fn: T): T {
   let called = false;
-  let result: ReturnType<T>;
+  let result: ReturnType<T> | undefined;
   return ((...args: Parameters<T>) => {
     if (!called) {
       called = true;
-      result = fn(...args);
+      result = fn(...args) as ReturnType<T>;
     }
     return result;
   }) as T;
@@ -98,7 +98,7 @@ export function memoize<T extends (...args: unknown[]) => unknown>(fn: T): T {
   return ((...args: Parameters<T>) => {
     const key = JSON.stringify(args);
     if (cache.has(key)) return cache.get(key)!;
-    const result = fn(...args);
+    const result = fn(...args) as ReturnType<T>;
     cache.set(key, result);
     return result;
   }) as T;
@@ -196,7 +196,7 @@ export function debouncePromise<T extends (...args: unknown[]) => Promise<unknow
       timeoutId = setTimeout(async () => {
         try {
           const result = await fn(...args);
-          pendingResolve(result);
+          pendingResolve(result as ReturnType<T>);
         } catch (error) {
           pendingReject(error);
         }
@@ -266,11 +266,13 @@ export function groupBy<T>(array: T[], key: keyof T | ((item: T) => string)): Re
   }, {} as Record<string, T[]>);
 }
 
-export function sortBy<T>(array: T[], key: keyof T | ((item: T) => unknown), order: 'asc' | 'desc' = 'asc'): T[] {
+export function sortBy<T>(array: T[], key: keyof T | ((item: T) => number), order: 'asc' | 'desc' = 'asc'): T[] {
   const sorted = [...array];
+  const toValue = (item: T): number =>
+    typeof key === 'function' ? key(item) : Number(item[key as keyof T]);
   sorted.sort((a, b) => {
-    const aVal = typeof key === 'function' ? key(a) : a[key];
-    const bVal = typeof key === 'function' ? key(b) : b[key];
+    const aVal = toValue(a);
+    const bVal = toValue(b);
     if (aVal < bVal) return order === 'asc' ? -1 : 1;
     if (aVal > bVal) return order === 'asc' ? 1 : -1;
     return 0;
@@ -278,7 +280,7 @@ export function sortBy<T>(array: T[], key: keyof T | ((item: T) => unknown), ord
   return sorted;
 }
 
-export function pick<T, K extends keyof T>(obj: T, keys: K[]): Pick<T, K> {
+export function pick<T extends object, K extends keyof T>(obj: T, keys: K[]): Pick<T, K> {
   const result = {} as Pick<T, K>;
   keys.forEach(key => {
     if (key in obj) result[key] = obj[key];
@@ -344,7 +346,7 @@ export async function tryCatchAsync<T>(fn: () => Promise<T>): Promise<{ data: T 
 }
 
 export function pipe<T>(value: T, ...fns: Array<(arg: unknown) => unknown>): T {
-  return fns.reduce((acc, fn) => fn(acc), value) as T;
+  return fns.reduce((acc, fn) => fn(acc), value as unknown) as T;
 }
 
 export function compose<T>(...fns: Array<(arg: T) => T>): (arg: T) => T {

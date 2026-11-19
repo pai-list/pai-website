@@ -1,5 +1,6 @@
 'use client';
 
+import * as React from 'react';
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { cn } from '@/lib/utils';
@@ -19,7 +20,6 @@ export function ParticleBackground({
   particleCount = 50,
   colors = ['#39ff14', '#22c55e', '#16a34a'],
   connectionDistance = 150,
-  mouse = 100,
   mouseInteraction = true 
 }: {
   className?: string;
@@ -29,7 +29,7 @@ export function ParticleBackground({
   mouseInteraction?: boolean;
 }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const animationRef = useRef<number>();
+  const animationRef = useRef<number | undefined>(undefined);
   const particlesRef = useRef<Particle[]>([]);
   const mouseRef = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
   
@@ -180,7 +180,7 @@ export function AgentNetworkGlobe({
   color?: string;
 }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const animationRef = useRef<number>();
+  const animationRef = useRef<number | undefined>(undefined);
   
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -699,7 +699,7 @@ export function PAILogo({
               <stop offset="0%" stopColor="#39ff14" />
               <stop offset="50%" stopColor="#22c55e" />
               <stop offset="100%" stopColor="#16a34a" />
-            </defs>
+            </linearGradient>
           </defs>
           <circle cx="16" cy="16" r="15" stroke="url(#paiGradient)" strokeWidth="2" />
           <path d="M16 8V24M8 16H24" stroke="url(#paiGradient)" strokeWidth="2.5" strokeLinecap="round" />

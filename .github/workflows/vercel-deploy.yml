@@ -11,8 +11,8 @@ jobs:
     uses: pai-list/.github/.github/workflows/vercel-deploy.yml@main
     with:
       project-id: prj_yLXkZuPE86TBSsX8PUFMqJgGgP2y
-      build-command: "npm run build"
-      install-command: "npm install"
+      build-command: "pnpm run build"
+      install-command: "pnpm install"
     secrets:
       VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
       VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
